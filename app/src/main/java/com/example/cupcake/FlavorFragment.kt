@@ -23,6 +23,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cupcake.adapter.FlavorAdapter
+import com.example.cupcake.data.Datasource
 import com.example.cupcake.databinding.FragmentFlavorBinding
 
 /**
@@ -37,12 +40,14 @@ class FlavorFragment : Fragment() {
     // when the view hierarchy is attached to the fragment.
     private var binding: FragmentFlavorBinding? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding = FragmentFlavorBinding.inflate(inflater, container, false)
         binding = fragmentBinding
+
         return fragmentBinding.root
     }
 
@@ -53,6 +58,12 @@ class FlavorFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             flavorFragment = this@FlavorFragment
+            recyclerView.apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(this@FlavorFragment.context)
+                adapter = FlavorAdapter(sharedViewModel)
+            }
+
         }
     }
 
@@ -76,4 +87,6 @@ class FlavorFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
+
 }

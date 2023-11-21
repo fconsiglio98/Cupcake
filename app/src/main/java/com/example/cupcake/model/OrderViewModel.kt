@@ -1,9 +1,11 @@
 package com.example.cupcake.model
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.cupcake.data.Datasource
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -18,6 +20,9 @@ class OrderViewModel : ViewModel() {
     private val _quantity = MutableLiveData<Int>()
     val quantity: LiveData<Int> = _quantity
 
+    private val _remainingQuantity = MutableLiveData<Int>()
+    val remainingQuantity: LiveData<Int> = _remainingQuantity
+
     private val _flavor = MutableLiveData<String>()
     val flavor: LiveData<String> = _flavor
 
@@ -28,6 +33,8 @@ class OrderViewModel : ViewModel() {
     val price: LiveData<String> = Transformations.map(_price) {
         NumberFormat.getCurrencyInstance().format(it)
     }
+
+    val dataset: List<Flavor> = Datasource.flavors
 
     val dateOptions = getPickupOptions()
 
@@ -46,7 +53,18 @@ class OrderViewModel : ViewModel() {
 
     fun setQuantity(numberCupcakes: Int) {
         _quantity.value = numberCupcakes
-        updatePrice()
+        _remainingQuantity.value = numberCupcakes
+    }
+
+    fun setRemainingQuantity(numberCupcakes: Int) {
+        _remainingQuantity.value = numberCupcakes
+    }
+
+    fun incrementRemainingQuantity() {
+        _remainingQuantity.value = _remainingQuantity.value!! + 1
+    }
+    fun decrementRemainingQuantity() {
+        _remainingQuantity.value = _remainingQuantity.value!! -1
     }
 
     fun setFlavor(desiredFlavor: String) {
@@ -63,6 +81,7 @@ class OrderViewModel : ViewModel() {
         _date.value = pickupDate
         updatePrice()
     }
+
 
     fun hasNoFlavorSet(): Boolean {
         return _flavor.value.isNullOrEmpty()
@@ -86,4 +105,5 @@ class OrderViewModel : ViewModel() {
         _date.value = dateOptions[1]
         _price.value = 0.0
     }
+
 }
