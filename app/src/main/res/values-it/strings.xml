@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="order_cupcakes">Ordina Cupcakes</string>
+    <string name="one_cupcake">Un Cupcake</string>
+    <string name="six_cupcakes">Sei Cupcakes</string>
+    <string name="twelve_cupcakes">Dodici Cupcakes</string>
+    <string name="choose_flavor">Scegli I Gusti</string>
+    <string name="vanilla">Vaniglia</string>
+    <string name="chocolate">Cioccolato</string>
+    <string name="salted_caramel">Caramello Salato</string>
+    <string name="coffee">Caffè</string>
+    <string name="special_flavor">Gusto Speciale</string>
+    <string name="cancel">Annulla</string>
+    <string name="next">Avanti</string>
+    <string name="choose_pickup_date">Scegli la data di ritiro</string>
+    <string name="order_summary">Riepilogo Ordine</string>
+    <string name="send">Invia L\'Ordine ad Un\'Altra App</string>
+    <string name="quantity">Quantità</string>
+    <string name="flavors">Gusti</string>
+    <string name="enter_your_name">Inserisci il tuo nome</string>
+    <string name="pickup_date">Data di ritiro</string>
+    <string name="subtotal_price">Tot. Parziale %s</string>
+    <string name="total_price">Totale %s</string>
+    <string name="new_cupcake_order">Nuovo Ordine di Cupcakes</string>
+    <string name="order_details">Quantità: %1$s \n Gusti: %2$s \nData di Ritiro: %3$s \n     Totale: %4$s \n\n Grazie,%5$s!</string>
+    <string name="name">NOME</string>
+    <string name="hello_blank_fragment">Ciao fragment vuoto</string>
+</resources>

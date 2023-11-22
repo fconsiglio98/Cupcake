@@ -78,7 +78,7 @@
                     style="@style/Widget.Cupcake.TextView.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/flavor" />
+                    android:text="@string/flavors" />
 
                 <TextView
                     android:id="@+id/flavor"
