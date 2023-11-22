@@ -2,16 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FlavorNumberFragment">
+    tools:context=".frames.FlavorNumberFragment">
 
     <data>
         <variable
             name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
+            type="com.example.cupcake.viewModel.OrderViewModel" />
 
         <variable
             name="flavorNumberFragment"
-            type="com.example.cupcake.FlavorNumberFragment" />
+            type="com.example.cupcake.frames.FlavorNumberFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

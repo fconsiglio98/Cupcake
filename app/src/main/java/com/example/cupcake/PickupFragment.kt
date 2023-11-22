@@ -15,11 +15,12 @@
  */
 package com.example.cupcake
 
-import com.example.cupcake.model.OrderViewModel
+import com.example.cupcake.viewModel.OrderViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -54,6 +55,14 @@ class PickupFragment : Fragment() {
             viewModel = sharedViewModel
             pickupFragment = this@PickupFragment
         }
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().popBackStack()
+            }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
     /**

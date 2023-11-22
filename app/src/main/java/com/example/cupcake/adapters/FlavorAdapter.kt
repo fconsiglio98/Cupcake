@@ -1,7 +1,5 @@
-package com.example.cupcake.adapter
+package com.example.cupcake.adapters
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cupcake.R
-import com.example.cupcake.model.OrderViewModel
+import com.example.cupcake.viewModel.OrderViewModel
 
 class FlavorAdapter(
     private val orderViewModel: OrderViewModel

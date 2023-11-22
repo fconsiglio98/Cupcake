@@ -22,7 +22,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
+            type="com.example.cupcake.viewModel.OrderViewModel" />
 
         <variable
             name="flavorFragment"
@@ -49,7 +49,7 @@
 
             <TextView
                 android:id="@+id/total"
-                android:text="@{@string/total_price(viewModel.price)}"
+                android:text="@{@string/subtotal_price(viewModel.price)}"
                 style="@style/Widget.Cupcake.TextView.FinalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,6 +60,7 @@
             <Button
                 android:id="@+id/next_button"
                 android:onClick="@{() -> flavorFragment.goToNextScreen()}"
+                android:enabled="@{viewModel.remainingQuantity.equals(0) ? true : false}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"

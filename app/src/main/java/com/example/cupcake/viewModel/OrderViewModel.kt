@@ -1,11 +1,11 @@
-package com.example.cupcake.model
+package com.example.cupcake.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.cupcake.data.Datasource
+import com.example.cupcake.model.Flavor
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -54,27 +54,16 @@ class OrderViewModel : ViewModel() {
     fun setQuantity(numberCupcakes: Int) {
         _quantity.value = numberCupcakes
         _remainingQuantity.value = numberCupcakes
+        updatePrice()
     }
 
     fun setRemainingQuantity(numberCupcakes: Int) {
         _remainingQuantity.value = numberCupcakes
     }
 
-    fun incrementRemainingQuantity() {
-        _remainingQuantity.value = _remainingQuantity.value!! + 1
-    }
-    fun decrementRemainingQuantity() {
-        _remainingQuantity.value = _remainingQuantity.value!! -1
-    }
 
     fun setFlavor(desiredFlavor: String) {
         _flavor.value = desiredFlavor
-    }
-
-    fun setFlavorAndDate(desiredFlavor: String, pickupDate: String){
-        _flavor.value = desiredFlavor
-        _date.value = pickupDate
-        updatePrice()
     }
 
     fun setDate(pickupDate: String) {
@@ -102,8 +91,18 @@ class OrderViewModel : ViewModel() {
     fun resetOrder() {
         _quantity.value = 0
         _flavor.value = ""
-        _date.value = dateOptions[1]
+        _date.value = dateOptions[0]
         _price.value = 0.0
+    }
+
+    fun flavorsSummaryList(): String {
+        var output = ""
+        dataset.forEach { flavor ->
+            if (flavor.quantity > 0) {
+                output += "${flavor.name}: ${flavor.quantity} \n"
+            }
+        }
+        return output
     }
 
 }

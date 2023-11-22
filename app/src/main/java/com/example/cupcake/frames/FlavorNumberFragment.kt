@@ -1,4 +1,4 @@
-package com.example.cupcake
+package com.example.cupcake.frames
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.cupcake.databinding.FragmentFlavorNumberBinding
-import com.example.cupcake.model.OrderViewModel
+import com.example.cupcake.viewModel.OrderViewModel
 
 class FlavorNumberFragment : Fragment() {
 

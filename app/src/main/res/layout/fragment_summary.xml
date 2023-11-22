@@ -22,7 +22,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.cupcake.model.OrderViewModel" />
+            type="com.example.cupcake.viewModel.OrderViewModel" />
 
         <variable
             name="summaryFragment"
@@ -82,7 +82,7 @@
 
                 <TextView
                     android:id="@+id/flavor"
-                    android:text="@{viewModel.flavor}"
+                    android:text="@{viewModel.flavorsSummaryList()}"
                     style="@style/Widget.Cupcake.TextView.OrderSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

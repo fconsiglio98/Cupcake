@@ -10,5 +10,6 @@ object Datasource {
         Flavor("Red Velvet"),
         Flavor("Salted Caramel"),
         Flavor("Coffee"),
+        Flavor("Strawberry")
     )
 }
