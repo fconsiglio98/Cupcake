@@ -73,7 +73,7 @@ class FlavorFragment : Fragment() {
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 sharedViewModel.dataset.forEach{flavor ->
-                    flavor.quantity = 0
+                    flavor.setQuantity(0)
                 }
                 findNavController().popBackStack()
             }
@@ -86,7 +86,7 @@ class FlavorFragment : Fragment() {
      * Navigate to the next screen to choose pickup date.
      */
     fun goToNextScreen() {
-        if(sharedViewModel.dataset[1].quantity > 0){
+        if(sharedViewModel.dataset[1].quantity.value!! > 0){
             sharedViewModel.setDate(sharedViewModel.dateOptions[1])
         }
         else{
@@ -113,7 +113,7 @@ class FlavorFragment : Fragment() {
     {
         // handle the up button here
         sharedViewModel.dataset.forEach{flavor ->
-            flavor.quantity = 0
+            flavor.setQuantity(0)
         }
         return NavigationUI.onNavDestinationSelected(
             item,

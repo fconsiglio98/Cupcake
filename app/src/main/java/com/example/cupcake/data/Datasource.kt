@@ -1,5 +1,6 @@
 package com.example.cupcake.data
 
+import com.example.cupcake.R
 import com.example.cupcake.model.Flavor
 
 object Datasource {

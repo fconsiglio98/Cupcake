@@ -34,6 +34,7 @@ class OrderViewModel : ViewModel() {
         NumberFormat.getCurrencyInstance().format(it)
     }
 
+
     val dataset: List<Flavor> = Datasource.flavors
 
     val dateOptions = getPickupOptions()
@@ -98,8 +99,8 @@ class OrderViewModel : ViewModel() {
     fun flavorsSummaryList(): String {
         var output = ""
         dataset.forEach { flavor ->
-            if (flavor.quantity > 0) {
-                output += "${flavor.name}: ${flavor.quantity} \n"
+            if (flavor.quantity.value!! > 0) {
+                output += "${flavor.name}: ${flavor.quantity.value} \n"
             }
         }
         return output

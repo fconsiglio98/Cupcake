@@ -1,5 +1,6 @@
 package com.example.cupcake.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,21 +44,25 @@ class FlavorAdapter(
      */
     override fun onBindViewHolder(holder: FlavorViewHolder, position: Int) {
         val item = orderViewModel.dataset[position]
-        holder.textView.text = item.name
-        holder.quantityTextView.text = item.quantity.toString()
+        var text = item.name
+        if (position == 1) {
+            text += "*"
+        }
+        holder.textView.text = text
+        holder.quantityTextView.text = item.quantity.value.toString()
         holder.plusButton.setOnClickListener() {
             if (orderViewModel.remainingQuantity.value!! > 0) {
                 orderViewModel.setRemainingQuantity(orderViewModel.remainingQuantity.value!! - 1)
-                item.quantity ++
-                holder.quantityTextView.text = item.quantity.toString()
+                item.setQuantity(item.quantity.value!! +1)
+                holder.quantityTextView.text = item.quantity.value.toString()
             }
 
         }
         holder.minusButton.setOnClickListener() {
-            if (orderViewModel.remainingQuantity.value!! <= 6 && item.quantity > 0) {
+            if (orderViewModel.remainingQuantity.value!! <= 6 && item.quantity.value!! > 0) {
                 orderViewModel.setRemainingQuantity(orderViewModel.remainingQuantity.value!! + 1)
-                item.quantity --
-                holder.quantityTextView.text = item.quantity.toString()
+                item.setQuantity(item.quantity.value!! -1)
+                holder.quantityTextView.text = item.quantity.value.toString()
             }
 
         }

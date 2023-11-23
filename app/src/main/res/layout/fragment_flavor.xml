@@ -48,6 +48,16 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
+                android:id="@+id/warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/side_margin"
+                android:alpha="@{viewModel.dataset[1].quantity > 0 ? 1.0f : 0.0f}"
+                android:text="@{@string/special_flavor_warning}"
+                android:textStyle="italic"
+                tools:text="* = Pickup is not available today" />
+
+            <TextView
                 android:id="@+id/total"
                 android:text="@{@string/subtotal_price(viewModel.price)}"
                 style="@style/Widget.Cupcake.TextView.FinalPrice"
