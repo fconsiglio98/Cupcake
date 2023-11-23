@@ -66,7 +66,7 @@ class FlavorFragment : Fragment() {
             recyclerView.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@FlavorFragment.context)
-                adapter = FlavorAdapter(sharedViewModel)
+                adapter = FlavorAdapter(sharedViewModel, context)
             }
         }
 
